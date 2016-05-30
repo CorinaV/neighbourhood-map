@@ -38,7 +38,7 @@ html, body {
 }
 @media (max-width: 425px){
   .list-group{
-    max-height:200px;
+    height: 75%;
     overflow-y:scroll;
   }
 }
