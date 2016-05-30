@@ -5,5 +5,8 @@ This is a project from Udacity Frontend Development Course focusing on creating 
 - Download the [repo][2]
 - Launch `index.html` in your browser
 
+### Demo
+- http://corinav.github.io/neighbourhood-map/
+
 [1]: http://knockoutjs.com/
 [2]: https://github.com/CorinaV/neighbourhood-map/archive/master.zip
