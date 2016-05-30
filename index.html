@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Neighbourhood Map</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div class="container fill">
+    <div class="row fill row-fill">
+      <div class="col-xs-12 col-sm-2 col-fill">
+        <h3 class="text-center" data-bind="text: appTitle"></h3>
+        <div class="input-group search-input">
+           <input type="text" class="form-control" placeholder="Filter restaurants ..." data-bind="textInput: filtertext">
+        </div>
+        <div class="list-group" data-bind="foreach: restaurants">
+          <button type="button" class="list-group-item" data-bind="visible: visible, text: name, click: $parent.showItem"></button>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-10 col-fill">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type='text/javascript' src='js/lib/jquery.min.js'></script>
+  <script type='text/javascript' src='js/lib/knockout.min.js'></script>
+  <script type='text/javascript' src='js/lib/oauth-signature.min.js'></script>
+  <script type='text/javascript' src='js/restaurantsDetails.js'></script>
+  <script>
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 41.3870194, lng: 2.1678531},
+        zoom: 14
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1SMJlF5Izrlf1Wr2gXAEiP8uM4eOnq_U&callback=initMap"></script>
+  <script type='text/javascript' src='js/app.js'></script>
+</body>
+</html>
