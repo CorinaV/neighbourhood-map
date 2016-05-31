@@ -1,5 +1,6 @@
 var map;
-// Innitiate map
+
+// Initialize map
 var initMap = function() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 41.3870194, lng: 2.1678531},
@@ -8,7 +9,8 @@ var initMap = function() {
 
   ko.applyBindings(new viewModel());
 }
-//added error handling in case map is not loading
+
+// Added error handling in case map is not loading
 var googleError = function() {
     $('body').prepend('<h5 class="alert alert-danger">Google Maps did not load. Please try refreshing the page!</h5>');
 }
