@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -14,11 +15,13 @@
       <div class="col-xs-12 col-sm-2 col-fill">
         <h3 class="text-center">Veggie Places Barcelona</h3>
         <div class="input-group search-input">
-           <input type="text" class="form-control" placeholder="Filter restaurants ..." data-bind="textInput: filtertext">
+           <input type="text" class="form-control" placeholder="Find restaurants ..." data-bind="textInput: filtertext">
         </div>
         <div class="list-group" data-bind="foreach: restaurants">
           <button type="button" class="list-group-item" data-bind="visible: visible, text: name, click: $parent.showItem"></button>
         </div>
+        <br>
+          <h5 class="text-center">Found a place? <a href="mailto:corina@fastmail.com" target="_blank"><i class="fa fa-envelope"></i></a> it to us</h5>
       </div>
       <div class="col-xs-12 col-sm-10 col-fill">
         <div id="map"></div>

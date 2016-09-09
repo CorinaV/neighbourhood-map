@@ -54,6 +54,7 @@ var yelpData = function(restaurant) {
       // Populate the info window with data from the Yelp API
       $('#' + restaurant.yelpID() + '-img').attr('src', response.image_url).attr('alt', response.name);
       $('#' + restaurant.yelpID() + '-heading').text(response.name);
+      $('#' + restaurant.yelpID() + '-address').text(response.location.address);
       $('#' + restaurant.yelpID() + '-rating').attr('src', response.rating_img_url_small).attr('alt', 'Rating: ' + response.rating);
       $('#' + restaurant.yelpID() + '-description').text(response.snippet_text);
       $('#' + restaurant.yelpID() + '-link').attr('href', response.url).removeClass('hidden');
@@ -104,9 +105,10 @@ var Restaurant = function(data) {
     new google.maps.InfoWindow({
       content:
         '<div class="media">' +
-        '  <div class="media-left"><img id="' + self.yelpID() + '-img" class="media-object" src="" alt=""></div>' +
+        '  <div class="media-left"><img id="' + self.yelpID() + '-img" class="media-object, image" src="" alt=""></div>' +
         '  <div class="media-body">' +
         '    <h4 id="' + self.yelpID() + '-heading" class="media-heading">' + self.name() + '</h4>' +
+        '    <p id="' + self.yelpID() + '-address"></p>' +
         '    <img id="' + self.yelpID() + '-rating" src="" alt=""><br>' +
         '    <span id="' + self.yelpID() + '-description">Loading Yelp data ... please wait.</span><br>' +
         '    <a id="' + self.yelpID() + '-link" href="" class="hidden" target="_blank">Read more on <b>Yelp</b></a>' +
@@ -141,6 +143,7 @@ var viewModel = function() {
 
   // Populate the restaurants array with Restaurant objects that use data from restaurantsDetails.
   // Also sets a click event on the marker, so when it is clicked it behaves like the list button.
+  restaurantsDetails.sort(function(a, b) { return a.name > b.name;});
   restaurantsDetails.forEach(function(item){
     var restaurantObj = new Restaurant(item);
     self.restaurants.push(restaurantObj);
